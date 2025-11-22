@@ -4,10 +4,8 @@ const Page = ()=>{
 return (
   <div>
     <Button>
-    Click Me 
-    Please  
+    Click Me  
     </Button>
-
     <div>
       <Button>
         Dont Click Me
