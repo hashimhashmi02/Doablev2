@@ -1,15 +1,19 @@
 import { Button } from "@/components/ui/button";
+import { Toggle } from "@radix-ui/react-toggle";
 
 const Page = ()=>{
 return (
   <div>
     <Button>
-    Click Me  
+      <Toggle>
+Click Me  
+    
+      </Toggle>
     </Button>
+      
+
+    
     <div>
-      <Button>
-        Dont Click Me
-      </Button>
     </div>
     </div>
 
