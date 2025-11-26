@@ -11,15 +11,7 @@ return (
     <Button variant={"outline"}>
       Click Me     
     </Button>
-    <Button variant={"secondary"}>
-      Click Me     
-    </Button>
-    <Button variant={"destructive"}>
-      Click Me     
-    </Button>
-    <Button variant={"default"}>
-      Click Me     
-    </Button>   
+
     <div>
     </div>
     </div>
