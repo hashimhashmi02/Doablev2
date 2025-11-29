@@ -1,21 +1,21 @@
-import { Button } from "@/components/ui/button";
-import { Toggle } from "@radix-ui/react-toggle";
-import { Ghost } from "lucide-react";
 
-const Page = ()=>{
+import { getQueryClient, trpc } from "@/trpc/server";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { Client } from "./client";
+import { Suspense } from "react";
+
+const Page = async ()=>{
+const queryClient = getQueryClient();
+void queryClient.prefetchQuery(trpc.createAI.queryOptions({text: "Hashim"})) ;
+
+
 return (
-  <div>      
-      <Button variant={"link"}>
-      Click Me     
-    </Button>
-    <Button variant={"outline"}>
-      Click Me     
-    </Button>
+  <HydrationBoundary state={dehydrate(queryClient)}>
+    <Suspense fallback ={<p> Loading...</p>} >
+    <Client/>
+    </Suspense>
 
-    <div>
-    </div>
-    </div>
-
+  </HydrationBoundary>
     
 )
 }
