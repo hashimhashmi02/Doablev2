@@ -8,7 +8,7 @@ const Page = ()=>{
   const trpc = useTRPC();
   const invoke = useMutation(trpc.invoke.mutationOptions({
     onSuccess: ()=>{
-      toast.success("Backgroud job started")
+      toast.success("Backgrooud job started")
     }
   }));
 
@@ -16,7 +16,7 @@ return (
   
   <div className="p-4 max-w-7xl mx-auto">
     <Button disabled={invoke.isPending} onClick={()=>invoke.mutate({text: "Hashim"})}>
-      invoke backgroud job
+      invoke background job
     </Button>
   </div>
   
