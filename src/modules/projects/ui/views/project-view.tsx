@@ -4,9 +4,10 @@
 import{ResizableHandle,ResizablePanel,ResizablePanelGroup} from "@/components/ui/resizable";
 
 import { MessagesContainer } from "../components/messages-container";
-import {  Suspense, useState } from "react";
+import { Suspense, useState } from "react";
 import {Fragment} from "@/generated/prisma/client"
 import { ProjectHeader } from "../components/project-header";
+import { FragmentWeb } from "../components/fragment-web";
 
 interface Props {
     projectId : string;
@@ -47,8 +48,7 @@ const [activeFragment, setActiveFragment] = useState <Fragment | null> (null)
             <ResizablePanel
             defaultSize={65}
             minSize={50}>
-
-            TODO: Preview
+             {!!activeFragment && <FragmentWeb data = {activeFragment}/>}
             </ResizablePanel>
             </ResizablePanelGroup>
         </div>
