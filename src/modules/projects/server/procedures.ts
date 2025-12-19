@@ -6,54 +6,64 @@ import {generateSlug} from "random-word-slugs"
 import { TRPCError } from "@trpc/server";
 
 export const projectsRouter = createTRPCRouter({
-    getOne: baseProcedure
-    .input(z.object({
-        id: z.string().min(1,{message: "Id is required"}),
-    }))
-    .query(async({input})=>{
-        const existingProjects = await prisma.project.findUnique({
-            where: {
-            id: input.id,
-            },
-           
-        });
+  getMany: baseProcedure.query(async () => {
+    return prisma.project.findMany({
+      orderBy: { updatedAt: "desc" },
+    });
+  }),
 
-        if(!existingProjects){
-            throw new TRPCError ({code:"NOT_FOUND", message:"project now found" })
-        }
-        return existingProjects;
-    }),
-    create : baseProcedure
+  getOne: baseProcedure
     .input(
-        z.object({
-            value: z.string().min(1,{message :"Prompt is required"})
-            .max(1000,{message: "Prompt is too long"})
-        }),
+      z.object({
+        id: z.string().min(1, { message: "Id is required" }),
+      })
     )
-    .mutation(async({input})=>{
-        const createdProject = await prisma.project.create({
-            data: {
-                name: generateSlug(2, {
-                  format: "kebab",  
-                }),
-                messages: {
-                    create:{
-                        content: input.value,
-                role: "USER",
-                type: "RESULT",
+    .query(async ({ input }) => {
+      const existingProject = await prisma.project.findUnique({
+        where: { id: input.id },
+      });
 
-                    }
-                }
-            }
-        })
+      if (!existingProject) {
+        throw new TRPCError({
+          code: "NOT_FOUND",
+          message: "project not found",
+        });
+      }
 
-         await inngest.send({
-              name:"code-agent/run",
-              data:{
-                value: input.value,
-                projectId : createdProject.id,
-              },
-            });
-            return createdProject;
-    })
-})
+      return existingProject;
+    }),
+
+  create: baseProcedure
+    .input(
+      z.object({
+        value: z
+          .string()
+          .min(1, { message: "Prompt is required" })
+          .max(1000, { message: "Prompt is too long" }),
+      })
+    )
+    .mutation(async ({ input }) => {
+      const createdProject = await prisma.project.create({
+        data: {
+          name: generateSlug(2, { format: "kebab" }),
+          messages: {
+            create: {
+              content: input.value,
+              role: "USER",
+              type: "RESULT",
+            },
+          },
+        },
+      });
+
+      await inngest.send({
+        name: "code-agent/run",
+        data: {
+          value: input.value,
+          projectId: createdProject.id,
+        },
+      });
+
+      return createdProject;
+    }),
+});
