@@ -12,13 +12,11 @@ import {Breadcrumb, BreadcrumbItem,
      BreadcrumbSeparator,
      BreadcrumbEllipsis }
  from "@/components/ui/breadcrumb";
-import { string } from "zod";
+
 import { convertFilesToTreeItems } from "@/lib/utils";
 import { TreeView } from "./tree-view";
 
-type FileCollection = {[path:string]:string};
-
-
+type FileCollection = {[path:string]:string}; 
 
 function getLanguageFromExtension(filename:string):string{
     const extension = filename.split(".").pop()?.toLowerCase();
@@ -55,10 +53,7 @@ const FileBreadcrumn = ({filePath}:FileBreadcrumnProps)=>{
 
                     </Fragment>
                  )
-
-
             })
-
 
         } else {
             const firstSegment = pathSegments[0];
@@ -97,10 +92,6 @@ return (
 )
 };
 
-
-
-
-
 interface FileExplorerProps {
  
     files : FileCollection;
@@ -138,9 +129,6 @@ const [selectedFile, setSelectedFile] = useState<string| null>(()=>{
         ],2000)
     }
  },[selectedFile,files])
-
-
-
 
 
     return (
