@@ -37,7 +37,7 @@ const resetTime = useMemo(()=>{
         <div>
           <p className="text-sm">{points}{hasProAccess ? "":"Free"} credits remaining</p>
           <p className="text-xs text-muted-foreground">
-            Resets in{" "} (resetTimew)
+            Resets in{" "} {resetTime}
          
           </p>
         </div>
