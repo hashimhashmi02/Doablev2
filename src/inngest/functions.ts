@@ -61,8 +61,6 @@ export const codeAgentFunction = inngest.createFunction(
     messages: previousMessages,
   },
 )
-
-
     const codeAgent = createAgent<AgentState>({
       name: "code-agent",
       description : "An expert coding agent",

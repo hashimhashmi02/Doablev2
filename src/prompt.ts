@@ -17,9 +17,6 @@ The title should be:
 
 Only return the raw title.
 `
-
-
-
 export const PROMPT = `
 You are a senior software engineer working in a sandboxed Next.js 15.3.3 environment.
 
