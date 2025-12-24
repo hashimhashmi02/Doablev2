@@ -2,8 +2,7 @@ import { openai, createAgent, createTool, createNetwork, type Tool, Message, cre
 import { inngest } from "./client";
 import { Sandbox } from "e2b";
 import { getSandbox, lastAssistantTextMessageContent } from "./utils";
-import z, { string } from "zod";
-import path from "path";
+import z from "zod";
 import { FRAGMENT_TITLE_PROMPT, PROMPT, RESPONSE_PROMPT } from "@/prompt";
 import prisma from "@/lib/db";
 import { SANDBOX_TIMEOUT } from "./types";

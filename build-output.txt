@@ -1,0 +1,85 @@
+﻿
+> doable@0.1.0 build
+> next build
+
+   Γû▓ Next.js 15.5.6
+   - Environments: .env
+
+   Creating an optimized production build ...
+node.exe :  ΓÜá Compiled with warnings in 2.6s
+At C:\nvm4w\nodejs\npm.ps1:16 char:5
++     & "$basedir/node$exe"  
+"$basedir/node_modules/npm/bin/npm-cli.js" ...
++     
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( ΓÜá Compiled with warni 
+   ngs in 2.6s:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+./node_modules/@opentelemetry/instrumentation-winston/build/src/instru
+mentation.js
+Module not found: Can't resolve '@opentelemetry/winston-transport' in 
+'C:\doable\node_modules\@opentelemetry\instrumentation-winston\build\s
+rc'
+
+Import trace for requested module:
+./node_modules/@opentelemetry/instrumentation-winston/build/src/instru
+mentation.js
+./node_modules/@opentelemetry/instrumentation-winston/build/src/index.
+js
+./node_modules/@opentelemetry/auto-instrumentations-node/build/src/uti
+ls.js
+./node_modules/@opentelemetry/auto-instrumentations-node/build/src/ind
+ex.js
+./node_modules/inngest/components/execution/otel/util.js
+./node_modules/inngest/components/execution/otel/middleware.js
+./node_modules/inngest/experimental.js
+./node_modules/@inngest/agent-kit/dist/chunk-BSWKEFTT.js
+./node_modules/@inngest/agent-kit/dist/index.js
+./src/inngest/functions.ts
+./src/app/api/inngest/route.ts
+
+./node_modules/vscode-languageserver-types/lib/umd/main.js
+Critical dependency: require function is used in a way in which 
+dependencies cannot be statically extracted
+
+Import trace for requested module:
+./node_modules/vscode-languageserver-types/lib/umd/main.js
+./node_modules/dockerfile-ast/lib/comment.js
+./node_modules/dockerfile-ast/lib/main.js
+./node_modules/e2b/dist/index.mjs
+./src/inngest/functions.ts
+./src/app/api/inngest/route.ts
+
+ Γ£ô Compiled successfully in 4.5s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/7) ...
+   Generating static pages (1/7) 
+   Generating static pages (3/7) 
+   Generating static pages (5/7) 
+ Γ£ô Generating static pages (7/7)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+Γöî Γùï /                                    4.83 kB         218 kB
+Γö£ Γùï /_not-found                            995 B         103 kB
+Γö£ ╞Æ /api/inngest                           128 B         102 kB
+Γö£ ╞Æ /api/trpc/[trpc]                       128 B         102 kB
+Γö£ Γùï /pricing                              3.6 kB         140 kB
+Γö£ ╞Æ /projects/[projectId]                74.5 kB         288 kB
+Γö£ ╞Æ /sign-in/[[...sign-in]]              5.09 kB         136 kB
+Γöö ╞Æ /sign-up/[[...sign-up]]              5.09 kB         136 kB
++ First Load JS shared by all             102 kB
+  Γö£ chunks/255-a78b69fc76e8afca.js       45.5 kB
+  Γö£ chunks/4bd1b696-409494caf8c83275.js  54.2 kB
+  Γöö other shared chunks (total)          2.06 kB
+
+
+╞Æ Middleware                             81.3 kB
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+
